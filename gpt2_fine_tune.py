@@ -34,7 +34,7 @@ from transformers import Trainer, TrainingArguments
 training_args = TrainingArguments(
     output_dir="./GPT2new-2",
     overwrite_output_dir=True,
-    num_train_epochs=1,
+    num_train_epochs=10,
     per_gpu_train_batch_size=32,
     save_steps=10_000,
     save_total_limit=2,
@@ -175,6 +175,7 @@ for i in checkpoints:
 KLthenew = torch.distributions.kl.kl_divergence(pthe['gpt'], pthe['new'])[0][0].cpu().detach().numpy()
 print("KL for the", KLthenew)
 
+### Calculating KL for deregulation
 pdereg = {}
 KLdereg = np.zeros(len(checkpoints))
 ind = 0
@@ -197,6 +198,7 @@ for i in checkpoints:
 KLderegnew = torch.distributions.kl.kl_divergence(pdereg['gpt'], pdereg['new'])[0][0].cpu().detach().numpy()
 print("KL for deregulation", KLderegnew)
 
+### Calculating KL for !
 pexc = {}
 KLexc = np.zeros(len(checkpoints))
 ind = 0
