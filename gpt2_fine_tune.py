@@ -230,6 +230,7 @@ plt.plot(lossno, loss)
 plt.xlabel('Iteration')
 plt.ylabel('Loss')
 
+## prompts to check output
 prompt = '''JOHNNY
 Well because it was an out of state bank. Anyway, I was working as a busboy in a hotel, and she was sitting, drinking her coffee, and she was so beautiful, and I say hi to her. That’s how we met.
 MARK
@@ -246,7 +247,12 @@ outputs = checkdict['new'].generate(inputs, max_length=300, do_sample=True, top_
 
 tokenizer.decode(outputs[0].numpy())
 
-prompt2 = '''I hate the way you talk to me, and the way you cut your hair. I hate the way you drive my car. I hate it when you stare, I hate your big dumb combat boots and the way you read my mind. I hate you so much it makes me sick, it even makes me rhyme'''
+prompt2 = '''ILSA
+But what about us?
+RICK
+We'll always have Paris. We didn't have, we, we lost it until you came to Casablanca. We got it back last night
+ILSA
+When I said I would never leave you'''
 inputs2 = tokenizer.encode(prompt2, add_special_tokens=True, return_tensors="pt")
 outputs2 = checkdict['gpt'].generate(inputs2, max_length=300, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
 
@@ -260,25 +266,3 @@ outputs2a = checkdict['checkpoint-10000'].generate(inputs2, max_length=300, do_s
 
 tokenizer.decode(outputs2a[0].numpy())
 
-prompt3 = '''ILSA
-But what about us?
-RICK
-We'll always have Paris. We didn't have, we, we lost it until you came to Casablanca. We got it back last night
-ILSA
-When I said I would never leave you'''
-inputs3 = tokenizer.encode(prompt3, add_special_tokens=True, return_tensors="pt")
-outputs3 = checkdict['gpt'].generate(inputs3, max_length=150, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
-
-tokenizer.decode(outputs3[0].numpy())
-
-outputsb = checkdict['checkpoint-80000'].generate(inputs3, max_length=150, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
-
-tokenizer.decode(outputsb[0].numpy())
-
-outputsc = checkdict['checkpoint-10000'].generate(inputs3, max_length=150, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
-
-tokenizer.decode(outputsc[0].numpy())
-
-outputsd = checkdict['new'].generate(inputs3, max_length=150, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
-
-tokenizer.decode(outputsd[0].numpy())
