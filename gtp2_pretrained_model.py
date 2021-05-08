@@ -27,10 +27,11 @@ data_collator = DataCollatorForLanguageModeling(
 training_args = TrainingArguments(
     output_dir="./GPT2-2",
     overwrite_output_dir=True,
-    num_train_epochs=2,
+    num_train_epochs=2,  ##can change epochs here
     per_gpu_train_batch_size=32,
     save_steps=10_000,
     save_total_limit=2,
+    prediction_loss_only=True,
 )
 
 trainer = Trainer(
@@ -38,7 +39,7 @@ trainer = Trainer(
     args=training_args,
     data_collator=data_collator,
     train_dataset=dataset,
-    prediction_loss_only=True,
+    
 )
 
 ## prompt to test
