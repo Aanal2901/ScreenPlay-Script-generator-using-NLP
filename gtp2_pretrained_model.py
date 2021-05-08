@@ -55,3 +55,15 @@ inputs = tokenizer.encode(prompt, add_special_tokens=True, return_tensors="pt")
 outputs = model.generate(inputs, max_length=300, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
 
 tokenizer.decode(outputs[0].numpy())
+
+prompt = '''ILSA
+But what about us?
+RICK
+We'll always have Paris. We didn't have, we, we lost it until you came to Casablanca. We got it back last night
+ILSA
+When I said I would never leave you'''
+
+inputs = tokenizer.encode(prompt, add_special_tokens=True, return_tensors="pt")
+outputs = model.generate(inputs, max_length=300, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
+
+tokenizer.decode(outputs[0].numpy())
