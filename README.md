@@ -18,6 +18,8 @@ The [first model](https://github.com/Aanal2901/ScreenPlay-Script-generator-using
 The [second model](https://github.com/Aanal2901/ScreenPlay-Script-generator-using-NLP/blob/main/gpt2_fine_tune.py) is made from scratch by training only on the scripts from all.txt file.   
 The [third model](https://github.com/Aanal2901/ScreenPlay-Script-generator-using-NLP/blob/main/gpt2_fine_tune.py) is made by fine-tuning the GPT2 model using scripts from all.txt.
 
+Please note you will have to change the all.txt file address according to your system.
+
 ## Results:
 prompt = '''JOHNNY
 Well because it was an out of state bank. Anyway, I was working as a busboy in a hotel, and she was sitting, drinking her coffee, and she was so beautiful, and I say hi to her. That’s how we met.
