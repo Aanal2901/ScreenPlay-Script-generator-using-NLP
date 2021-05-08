@@ -29,13 +29,18 @@ Well the interesting part is that
 
 #### Pre Trained model output:
 Epochs - 10 Words - 300  
-that you really don't know her at all. I think I had seen her a couple times, and the first one I heard from her was. I heard that from a pretty old friend, she was the one who was like that with us. We were driving on the highway down there. My friend was driving over there with his girlfriend, and she got into a little bit of a mess, and it was kind of a hot-and-straw kind of place. Like she was saying something about a really big truck. She was like, "Oh my God." And her friend stopped him. "You're all so hot!" It was like, "What? You wanna go over there with me?" So at that point, what kind of reaction were people gonna get?
+that you really don't know her at all. I think I had seen her a couple times, and the first one I heard from her was. I heard that from a pretty old friend, she was the one who was like that with us. We were driving on the highway down there. My friend was driving over there with his girlfriend, and she got into a little bit of a mess, and it was kind of a hot-and-straw kind of place. Like she was saying something about a really big truck. She was like, "Oh my God." And her friend stopped him. "You're all so hot!" It was like, "What? You wanna go over there with me?" So at that point, what kind of reaction were people gonna get?  
 
 MARK
-Oh my god, man. There were people driving. I think they were looking up, you know what we mean? A couple of people got over there.
-So those folks were driving over the highway. They're over'
+Oh my god, man. There were people driving. I think they were looking up, you know what we mean? A couple of people got over there. So those folks were driving over the highway.They're over'
+
 
 #### Model Trained from scratch output:
+Epochs - 10 Words - 300
+I 've! They. You don’t got! Who, you! It was! I was! It was! You got! I think! Who. You know! You got! You are G! You didn’t You’ re This thought. To're You're is! What a great! It’'re P couldn do --K was a handsome...?! got! I have! I never You want am liked! I didn had a good real... an - an big guy know't got to Come and up! I know, and OK. What are You made a great-- was a kid a bit. You don!" was all was a liar, I didn! I didn't been, in is a big kid. You're MT saw to Three, in a GK ever. ( got to What took a lot! You knew in always! Who're all, you! I'm got got...M got to This took. How should got to decided a big sweet!?... you! You're You're married child have got to You're
 
-JOHNNY\nWell because it was an out of state bank. Anyway, I was working as a busboy in a hotel, and she was sitting, drinking her coffee, and she was so beautiful, and I say hi to her. That’s how we met.\n\nMARK\nSo, I mean, what\'s the interesting part?\n\nJOHNNY\nWell the interesting part is that\n. I\'ve! They. You don got! Who, you! It was! I was! It was! You got! I think! Who. You know! You got! You areG! You didn! You\'reP This thought. To\'re You\'re is! What a great! It\'reP couldn do --K was a handsome...?! got! I have! I never You want am liked! I didn had a good real... an - an big guy know\'t got to Come and up! I know, and OK. What are You made a great-- was a kid a bit. You don!" was all was a liar, I didn! I didn\'t been, in is a big kid. You\'reMT saw to Three, inaGK ever. ( got to What took a lot! You knew in always! Who\'re all, you! I\'m got got...M got to This took. How should got toM decided a big sweet!?... you! You\'re You\'re married child have got to You\'re'
 
+#### Fine tuned
+Epochs - 10 Words - 300  
+to me, I think this is like the worst type of scandal or something and then you’re trying to get the information out. I guess it is sort of interesting, the people on the Internet do this all the time. When you're able to get information or a tip on people you're like "Where have you gotten it from?" Well, that I thought of at the time.And then we just go through it and put it through a series of filters and then I just get sort of sad because I know there’s nothing wrong at all. I know, as you know, that kind of people, that kind of people you know, they don't know what they’re talking about. We just go out there and read information on them. As soon as someone comes in they don't know what it is. And when they go out there and take a look, I can guarantee you, people tell you, what they’re actually doing is the truth. That’s the trick in that.
+MARK : You're saying some people ask
