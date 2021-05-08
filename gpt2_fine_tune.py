@@ -110,20 +110,26 @@ trainer.train()
 trainer.save_model("./GPT2final")
 
 ### For using Checkpoints
+device = 'cuda'
+
 import numpy as np
-checkpoints = ['checkpoint-5000']
+checkpoints = ['checkpoint-5000', 'checkpoint-10000', 'checkpoint-15000', 'checkpoint-20000', 'checkpoint-25000', 'checkpoint-30000', 'checkpoint-35000', 'checkpoint-40000', 'checkpoint-45000', 
+ 'checkpoint-50000', 'checkpoint-55000', 'checkpoint-60000', 'checkpoint-65000', 'checkpoint-70000', 'checkpoint-75000', 'checkpoint-80000']
 checkdict = {}
 
 for i in checkpoints:
   checkdict[i] = GPT2LMHeadModel.from_pretrained('./GPT2final/' + i, config=config)
   checkdict[i] = checkdict[i].to(device)
+
 checkdict['gpt'] = model
 checkdict['gpt'] = checkdict['gpt'].to(device)
+
 checkdict['final'] = GPT2LMHeadModel.from_pretrained('./GPT2final/', config=config)
 checkdict['final'] = checkdict['final'].to(device)
+
 checkdict['new'] = GPT2LMHeadModel.from_pretrained('./GPT2new-2/', config=config)
 checkdict['new'] = checkdict['new'].to(device)
-print(1)
+
 
 love_input = torch.tensor(tokenizer.encode("love", add_special_tokens=True)).unsqueeze(0)
 love_input = love_input.to(device)
@@ -137,7 +143,7 @@ for i in ['gpt', 'final', 'new']:
   plove[i] = torch.distributions.categorical.Categorical(m(checkdict[i](love_input)[0]))
 
 KLlovenew = torch.distributions.kl.kl_divergence(plove['gpt'], plove['new'])[0][0].cpu().detach().numpy()
-print(KLlovenew)
+print("KL for love", KLlovenew)
 
 KLlove = np.zeros(len(checkpoints))
 ind = 0 
@@ -147,7 +153,7 @@ for i in checkpoints:
   KL = torch.distributions.kl.kl_divergence(plove['gpt'], plove[i])[0][0]
   KLlove[ind] = KL.cpu().detach().numpy()
   ind += 1
-  print(ind)
+  
 
 pthe = {}
 KLthe = np.zeros(len(checkpoints))
@@ -167,7 +173,7 @@ for i in checkpoints:
   ind += 1
 
 KLthenew = torch.distributions.kl.kl_divergence(pthe['gpt'], pthe['new'])[0][0].cpu().detach().numpy()
-print(KLthenew)
+print("KL for the", KLthenew)
 
 pdereg = {}
 KLdereg = np.zeros(len(checkpoints))
@@ -180,7 +186,7 @@ for i in checkpoints:
   pdereg[i] = torch.distributions.categorical.Categorical(m(checkdict[i](dereg_input)[0]))
 for i in ['gpt', 'final', 'new']:
   pdereg[i] = torch.distributions.categorical.Categorical(m(checkdict[i](dereg_input)[0]))
-print(3)
+
 for i in checkpoints:
   print(i + ':')
   KL = torch.distributions.kl.kl_divergence(pdereg['gpt'], pdereg[i])[0][0]
@@ -189,7 +195,7 @@ for i in checkpoints:
   ind += 1
 
 KLderegnew = torch.distributions.kl.kl_divergence(pdereg['gpt'], pdereg['new'])[0][0].cpu().detach().numpy()
-print(KLderegnew)
+print("KL for deregulation", KLderegnew)
 
 pexc = {}
 KLexc = np.zeros(len(checkpoints))
@@ -208,7 +214,7 @@ for i in checkpoints:
   ind += 1
 
 KLexcnew = torch.distributions.kl.kl_divergence(pexc['gpt'], pexc['new'])[0][0].cpu().detach().numpy()
-print(KLexcnew)
+print("KL for !", KLexcnew)
 
 import numpy as np
 
@@ -252,5 +258,9 @@ outputs = checkdict['new'].generate(inputs, max_length=300, do_sample=True, top_
 tokenizer.decode(outputs[0].cpu().numpy())
 
 ## for fine tuned model
+outputs = checkdict['final'].generate(inputs, max_length=300, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
+tokenizer.decode(outputs[0].cpu().numpy())
+
+### You can obtain outputs from different check points by - 
 outputs = checkdict['final'].generate(inputs, max_length=300, do_sample=True, top_p=0.95, top_k=100, temperature=1.1)
 tokenizer.decode(outputs[0].cpu().numpy())
