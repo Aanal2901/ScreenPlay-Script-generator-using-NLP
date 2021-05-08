@@ -11,7 +11,7 @@ To quantitatively compare the language models, I chose to look at their Kullback
 be informally thought of as an abstract distance between two distributions.  
 
 ### This project is divided in three parts.
-##### All the models were trained on Kaggle notebook, setting accelerator in GPU. 
+##### All the models were trained on Kaggle notebook, setting accelerator in GPU. We preferred training on Kaggle because it was faster than colab. 
 ##### Language used is Python.
 ##### Libraries - Transformers, torch, numpy, matplotlib
 The [first model](https://github.com/Aanal2901/ScreenPlay-Script-generator-using-NLP/blob/main/gtp2_pretrained_model.py) is Pretrained GPT2 model imported using Transformer libraries.    
@@ -36,4 +36,6 @@ Oh my god, man. There were people driving. I think they were looking up, you kno
 So those folks were driving over the highway. They're over'
 
 #### Model Trained from scratch output:
+
+JOHNNY\nWell because it was an out of state bank. Anyway, I was working as a busboy in a hotel, and she was sitting, drinking her coffee, and she was so beautiful, and I say hi to her. That’s how we met.\n\nMARK\nSo, I mean, what\'s the interesting part?\n\nJOHNNY\nWell the interesting part is that\n. I\'ve! They. You don got! Who, you! It was! I was! It was! You got! I think! Who. You know! You got! You areG! You didn! You\'reP This thought. To\'re You\'re is! What a great! It\'reP couldn do --K was a handsome...?! got! I have! I never You want am liked! I didn had a good real... an - an big guy know\'t got to Come and up! I know, and OK. What are You made a great-- was a kid a bit. You don!" was all was a liar, I didn! I didn\'t been, in is a big kid. You\'reMT saw to Three, inaGK ever. ( got to What took a lot! You knew in always! Who\'re all, you! I\'m got got...M got to This took. How should got toM decided a big sweet!?... you! You\'re You\'re married child have got to You\'re'
 
