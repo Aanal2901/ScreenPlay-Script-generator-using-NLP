@@ -1,6 +1,7 @@
 ! pip install transformers
 
 ### If you run for 10 epochs (training takes longer) you use all the checkpoints, otherwise you will have to use till checkpoint < step
+## this is buiding model from scratch
 from transformers import GPT2Config, GPT2LMHeadModel, GPT2TokenizerFast
 import torch
 
@@ -15,7 +16,7 @@ from transformers import LineByLineTextDataset
 
 dataset = LineByLineTextDataset(
     tokenizer=tokenizer,
-    file_path="all.txt",
+    file_path="../input/romcom/all.txt",
     block_size=128,
 )
 
@@ -30,7 +31,7 @@ from transformers import Trainer, TrainingArguments
 training_args = TrainingArguments(
     output_dir="./GPT2new-2",
     overwrite_output_dir=True,
-    num_train_epochs=10,
+    num_train_epochs=4,
     per_gpu_train_batch_size=32,
     save_steps=10_000,
     save_total_limit=2,
@@ -42,6 +43,7 @@ trainer = Trainer(
     args=training_args,
     data_collator=data_collator,
     train_dataset=dataset,
+    
 )
 
 trainer.train()
